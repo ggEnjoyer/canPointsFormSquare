@@ -46,6 +46,28 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
     }
 }
 
+bool Sort(int i[])
+{
+    int j = 1, net;
+    bool b = false;
+    while (!b)
+    {
+        b = true;
+        j = 1;
+        while (j < 4)
+        {
+            if (i[j - 1] > i[j])
+            {
+                net = i[j - 1];
+                i[j - 1] = i[j];
+                i[j] = net;
+                b = false;
+            }
+            j++;
+        }
+    }
+}
+
 int main()
 {
     Point p1, p2, p3, p4;
