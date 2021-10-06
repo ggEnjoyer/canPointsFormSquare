@@ -49,15 +49,26 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
         }
         i++;
     }
-    A.x = xtop; 
+    A.x = xtop;
     A.y = yes[id];
-    cout << endl << A.x << " " << A.y;
+
+    i = 0;
+    while (i < 4)
+    {
+        if (xtop == xes[i] && A.y > yes[i])
+        {
+            A.y = yes[i];
+        }
+        i++;
+    }
+
+    cout << endl << "A: " << A.x << " " << A.y;
 
     //define xbot
     i = 1;
     id = 0;
     xbot = xes[0];
-    while (i < 3)
+    while (i < 4)
     {
         if (xbot > xes[i])
         {
@@ -68,7 +79,18 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
     }
     B.x = xbot;
     B.y = yes[id];
-    cout << endl << B.x << " " << B.y;
+
+    i = 0;
+    while (i < 4)
+    {
+        if (xbot == xes[i] && B.y < yes[i])
+        {
+            B.y = yes[i];
+        }
+        i++;
+    }
+
+    cout << endl << "B: " << B.x << " " << B.y;
 
     //define ytop
     i = 1;
@@ -85,17 +107,27 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
     }
     C.y = ytop;
     C.x = xes[id];
-    cout << endl << C.x << " " << C.y;
+
+    i = 0;
+    while (i < 4)
+    {
+        if (ytop == yes[i] && C.x < xes[i])
+        {
+            C.x = xes[i];
+        }
+        i++;
+    }
+
+    cout << endl << "C: " << C.x << " " << C.y;
 
     //define ybot
     i = 1;
     id = 0;
     ybot = yes[0];
-    while (i < 3)
+    while (i < 4)
     {
         if (ybot > yes[i])
         {
-            cout << endl << ybot << " > " << yes[i];
             ybot = yes[i];
             id = i;
         }
@@ -103,23 +135,41 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
     }
     D.y = ybot;
     D.x = xes[id];
-    cout << endl << D.x << " " << D.y;
+
+    i = 0;
+    while (i < 4)
+    {
+        if (ybot == yes[i] && D.x > xes[i])
+        {
+            D.x = xes[i];
+        }
+        i++;
+    }
+
+    cout << endl << "D: " << D.x << " " << D.y;
+
+    cout << endl;
+    cout << endl << "A: " << A.x << " " << A.y;
+    cout << endl << "B: " << B.x << " " << B.y;
+    cout << endl << "C: " << C.x << " " << C.y;
+    cout << endl << "D: " << D.x << " " << D.y;
+    cout << endl;
 
     AC = sqrt(pow((A.x - C.x), 2) + pow((A.y - C.y), 2));
-    cout << endl << AC;
+    cout << endl << "AC = " << AC;
     BC = sqrt(pow((B.x - C.x), 2) + pow((B.y - C.y), 2));
-    cout << endl << BC;
+    cout << endl << "BC = " << BC;
     BD = sqrt(pow((B.x - D.x), 2) + pow((B.y - D.y), 2));
-    cout << endl << BD;
+    cout << endl << "BD = " << BD;
     DA = sqrt(pow((D.x - A.x), 2) + pow((D.y - A.y), 2));
-    cout << endl << DA;
+    cout << endl << "DA = " << DA;
 
     AB = sqrt(pow((A.x - B.x), 2) + pow((A.y - B.y), 2));
-    cout << endl << AB;
+    cout << endl << "AB = " << AB;
     CD = sqrt(pow((C.x - D.x), 2) + pow((C.y - D.y), 2));
-    cout << endl << CD;
+    cout << endl << "CD = " << CD;
     
-    if ((AB == CD) && (AC == BC) && (BC == BD) && (DA == AC) && (AC == DA) && (AC != 0)) return 1;
+    if ((AB == CD) && (AC == BC) && (BC == BD) && (DA == AC) && (AC != 0)) return 1;
        /* if (AB == CD)
         {
             cout << "\nab = cd...";
@@ -151,6 +201,7 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
             cout << "\nbut ac != bc";
         }
         cout << "\nab != cd";*/
+    //if (AB == BD && BD == CD && CD == AC && AC == AB && DA == BC && AB != 0)return 1;
     return 0;
 }
 
