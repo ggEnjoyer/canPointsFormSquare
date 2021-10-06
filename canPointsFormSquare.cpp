@@ -119,8 +119,8 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
     CD = sqrt(pow((C.x - D.x), 2) + pow((C.y - D.y), 2));
     cout << endl << CD;
     
-   // if ((AB == CD) && (AC == CD) && (BC == BD) && (DA == AC) && (AC == DA) && (AC != 0)) 
-        if (AB == CD)
+    if ((AB == CD) && (AC == BC) && (BC == BD) && (DA == AC) && (AC == DA) && (AC != 0)) return 1;
+       /* if (AB == CD)
         {
             cout << "\nab = cd...";
             if (AC == BC)
@@ -150,7 +150,7 @@ bool isSquare(Point p1, Point p2, Point p3, Point p4 )
             }
             cout << "\nbut ac != bc";
         }
-        cout << "\nab != cd";
+        cout << "\nab != cd";*/
     return 0;
 }
 
